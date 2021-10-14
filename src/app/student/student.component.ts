@@ -1,45 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+  styleUrls: ['./student.component.css'],
 })
 export class StudentComponent implements OnInit {
+  @Input() student: any;
 
-  // creazione lista studenti
-  studentList = [
-    { name: 'Ettore Esposito', hobby: 'Karate', gender: 'M' },
-    { name: 'Luca Pelissero', hobby: 'Arrampicata', gender: 'M' },
-    { name: 'Bianca Teleman', hobby: 'Volley', gender: 'F' },
-    { name: 'Paolo Giordano', hobby: 'Volley', gender: 'M' },
-    { name: 'Michele Ghisolfi', hobby: 'Judo', gender: 'M' },
-    { name: 'Veronico Galvagno', hobby: 'Paddle', gender: 'F' },
-    { name: 'Chiara Pelissero', hobby: 'Paddle', gender: 'F' },
-    { name: 'Federico Mameli', hobby: 'Danza', gender: 'M' },
-    { name: 'Lorenzo Cravero', hobby: 'Calcio', gender: 'M' },
-    { name: 'Marta Baudracco', hobby: 'Volley', gender: 'F' },
-    { name: 'Edoardo Ababei', hobby: 'Palestra', gender: 'M' },
-    { name: 'Ivan Anjelovski', hobby: 'Palestra', gender: 'M' }
-  ]
-
-  student: any;
-
-  constructor() {
-    // tutte le volte che viene istanziato uno studente ne viene preso uno a caso nella lista
-    this.randomStudent();
-  }
-
-  private randomStudent() {
-    let num = Math.floor(Math.random() * this.studentList.length);
-    this.student = this.studentList[num];
-  }
+  constructor() {}
 
   ngOnInit(): void {
+    this.randomStudentPro();
   }
 
   onStudentClick() {
-    this.randomStudent();
+    this.student.isPro = !this.student.isPro;
   }
 
+  private randomStudentPro() {
+    let num = Math.floor(Math.random() * 2);
+    if (num == 1) {
+      this.student.isPro = true;
+    }
+  }
 }
