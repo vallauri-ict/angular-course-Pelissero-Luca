@@ -17,6 +17,30 @@ h6, .student {
   margin: 8px 0;
 }
 
+button{
+  background-color: #1976d2;
+  padding: 10px;
+  color: whitesmoke;
+  margin: 16px auto;
+  border-radius: 4px;
+}
+button:disabled{
+  background-color: whitesmoke;
+  color: gray;
+}
+
+.gender-selection{
+  margin: 10px auto;
+}
+.gender-selection>div{
+  display: inline;
+}
+
+.hobbie-selection{
+  width: 110px;
+  margin: 10px auto;
+}
+
 .student{
   min-width: 350px;
   text-align: left;
